@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+//import { rejects } from 'assert';
+//import { resolve } from 'dns';
+import { interval } from 'rxjs';
 
 @Component({
   selector: 'app-no-comunes',
@@ -34,4 +37,37 @@ export class NoComunesComponent {
   borrarCliente() {
     this.clientes.pop();
   }
+
+
+  //keyvalue pipe
+  persona = {
+    nombre: 'Antonio',
+    edad: 36,
+    direccion: 'Málaga, España'
+  }
+
+  //json pipe
+  heroes = [
+    {
+      nombre: 'Superman',
+      vuela: true,
+    },
+    {
+      nombre: 'Robin',
+      vuela: false,
+    },
+    {
+      nombre: 'Aquaman',
+      vuela: false,
+    }
+  ]
+
+  //async pipe
+  miObservable = interval(1000);//0,1,2,3,4,5,6...
+
+  valorPromesa = new Promise((resolve, rejects) => {
+    setTimeout(() => {
+      resolve('Tenemos data de promesa');
+    }, 3500);
+  });
 }
